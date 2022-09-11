@@ -22,13 +22,6 @@ spec:
       - name: web-config
         configMap:
           name: {{ .Values.configVolume }}-web-{{ .Release.Name }}-configmap
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "kube-task-chart.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
