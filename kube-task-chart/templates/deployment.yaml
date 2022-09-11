@@ -21,7 +21,7 @@ spec:
       volumes:
       - name: web-config
         configMap:
-          name: green-web-{{ .Release.Name }}-configmap
+          name: {{ .Values.configVolume }}-web-{{ .Release.Name }}-configmap
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
