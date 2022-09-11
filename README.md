@@ -1,1 +1,0 @@
-# kubernifying-nginx
